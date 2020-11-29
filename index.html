@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>
+        Begin Javascript
+    </title>
+    <style>
+        h1 > span{
+            color:red;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title" class="selector">Merhaba Ahmet</h1>
+    <input type="number" id="number" />
+    <button onclick="modulus()" class="selector">Hesapla</button>
+    <!--<p id="desc"></p>
+        <button id="btn" onclick="counter(1)">Butona Tıkla</button>
+        <button id="btn2" onclick="counter(5)">Butona Tıkla +5</button>-->
+
+    <script>
+        var title = document.getElementById("title");
+        
+        function degistir() {
+            if (title.innerHTML === "" || title.innerHTML === "Güle Güle Ahmet") {
+                title.innerHTML = "Merhaba Ahmet"
+            }
+            else {
+                title.innerHTML = "Güle Güle Ahmet"
+            }
+        }
+
+        function hesapla(){
+            var sayi = document.getElementById("number").value;
+            alert(sayi * sayi);
+        }
+
+        function modulus(){
+            var sayi = document.getElementById("number").value;
+            console.log(sayi % 12);
+        }
+    </script>
+</body>
+
+</html>

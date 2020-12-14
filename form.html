@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My TO DO List</title>
+    <link rel="stylesheet" href="css/form.css" />
+</head>
+
+<body>
+    <h1>TO DO List</h1>
+    <ul id="tdList">
+    </ul>
+    <form>
+        <input id="task" placeholder="New Task" type="text" />
+        <button id="sendBtn" type="submit">Send</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            document.querySelector('#sendBtn').disabled = true;
+
+            document.querySelector('#task').onkeyup = () => {
+                if (document.querySelector('#task').value.length > 0)
+                    document.querySelector('#sendBtn').disabled = false;
+                else
+                    document.querySelector('#sendBtn').disabled = true;
+            };
+
+            document.querySelector('form').onsubmit = () => {
+
+                const li = document.createElement('li');
+                li.innerHTML = document.querySelector('#task').value;
+
+                document.querySelector('#tdList').append(li);
+                document.querySelector('#task').value = '';
+                document.querySelector('#sendBtn').disabled = true;
+
+
+                return false;
+            };
+
+        });
+    </script>
+</body>
+
+</html>

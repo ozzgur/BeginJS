@@ -14,15 +14,27 @@
             <option value="3">Karekök Al</option>
         </select>
         <button id="tikla">Buton</button>
+        <div style="display: block; margin-top: 20px;">
+            <button data-set="red">red</button>
+            <button data-set="yellow">yellow</button>
+            <button data-set="blue">blue</button>
+        </div>
+        
         <script>
-            $(document).ready(function(e){
-                var s1 = $("#sayi").val();
-                var s2 = $("#sayi2").val();
-                var isim = $("#isim").val();
-                var buton = $("#tikla");
+            $(document).ready(function(){
+                function getData(){
+                    var s1 = $("#sayi").val();
+                    var s2 = $("#sayi2").val();
+                    var isim = $("#isim").val();
+                    var buton = $("#tikla");
+                }
+                changeColor = () =>{
+                    console.log("sss");
+                }
                 var data = {};
-                //buton.on('click', function(){console.log(s1,s2,isim)} );
-                $("#tikla").click(function(){
+             
+                $("#tikla").click(function(e){
+                    e.preventDefault();
                     data = {
                         ilksayi: $("#sayi").val(),
                         ikincisayi: $("#sayi2").val(),
@@ -33,6 +45,7 @@
                     if(data.islem == 1)
                     {   
                         console.log("Sayınızı yuvarladık: ",Math.round(data.ilksayi));
+                        console.log(`(Alternatif) Sayınızı yuvarladık: ${Math.round(data.ilksayi)}`);
                     }
                     else if(data.islem == 2){
                         console.log("Sayınızın üslü kuvvetini aldık: ",Math.pow(data.ilksayi, data.ikincisayi));
